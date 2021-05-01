@@ -1,0 +1,19 @@
+<div class='container'>
+  <h1>My Parser</h1>
+  <h3>Available Websites</h3>
+
+  <table class="table table-striped">
+    <tr>
+      <th>Name</th>
+      <th>Url</th>
+      <th>Go to links</th>
+    </tr>
+    <% @websites.each do |website| %>
+      <tr>
+        <td><%= website.name %></td>
+        <td><%= website.url%></td>
+        <td><%= link_to 'Links', links_path(website_id: website.id), class: 'action index' %></td>
+      </tr>
+    <%end%>
+  </table>
+</div>

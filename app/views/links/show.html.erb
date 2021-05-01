@@ -1,0 +1,40 @@
+<div class='container'>
+  <h3>Link ifno</h3>
+  <table class="table table-striped">
+    <tr>
+      <th>Name</th>
+      <th>Url</th>
+      <th></th>
+    </tr>
+    <tr>
+      <td><%= @link.name %></td>
+      <td><%= @link.url%></td>
+      <td><%= link_to 'Go To', @link.url %></td>
+    </tr>
+  </table>
+
+  <h4>The List of the Parsed Products</h4>
+
+  <table class="table table-striped">
+    <tr>
+      <th>Name</th>
+      <th>Discription</th>
+      <th>Url</th>
+      <th>Parsed Date</th>
+    </tr>
+    <% if @parser %>
+      <% @parser.records.each do |record| %>
+        <tr>
+          <td><%= record.name %></td>
+          <td><%= record.descrtiption %></td>
+          <td><%= link_to record.url, record.url, target: "_blank" %></td>
+          <td><%= record.updated_at.to_date %>
+        </tr>
+      <% end %>
+    <% else %>
+      <tr>
+        <td colspan='4' style='text-align: center;'>No records parsed yet</td>
+      </tr>
+    <% end %>
+  </table>
+</div>

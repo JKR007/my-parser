@@ -1,0 +1,17 @@
+<div class='container'>
+  <h2>List of Links</h2>
+  <table class="table table-striped">
+    <tr>
+      <th>Name</th>
+      <th>URL</th>
+      <th>#</th>
+    </tr>
+    <% @links.each do |link| %>
+      <tr>
+        <td><%= link_to link.name, link_path(id: link.id) %></td>
+        <td><%= link_to 'Navigate To', link.url, target: "_blank" %></td>
+        <td><%= link_to 'Start Parsing', parse_path(link_url: link.url, link_id: link.id) %></td>
+      </tr>
+    <%end%>
+  </table>
+</div>
